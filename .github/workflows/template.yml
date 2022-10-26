@@ -183,7 +183,9 @@ jobs:
 
 
   deployPages:
-    needs: buildWebGL
+    needs: 
+      - buildWebGL
+      - buildAndroid
     name: Deploy to Github Pages 🚀
     runs-on: ubuntu-latest
     steps:
@@ -200,3 +202,13 @@ jobs:
         with:
           branch: gh-pages
           folder: build/WebGL
+      - uses: actions/download-artifact@v2
+        with:
+          name: build-Android
+          path: build
+
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@4.1.4
+        with:
+          branch: gh-pages
+          folder: build/Android
