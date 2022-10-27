@@ -201,7 +201,7 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@4.1.4
         with:
           branch: gh-pages
-          folder: build/WebGL
+          folder: build/WebGL/WebGL
 
   deployAndroidPages:
     needs: 
@@ -222,4 +222,4 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@4.1.4
         with:
           branch: gh-pages
-          folder: build/Android
+          folder: build/Android/Android
