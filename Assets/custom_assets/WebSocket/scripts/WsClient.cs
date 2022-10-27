@@ -15,8 +15,8 @@ public class WsClient : MonoBehaviour
     [SerializeField] private string ip = "localhost";
     [SerializeField] private string port = "8080";
     [SerializeField] private Ws_to_debug wsToDebug;
-    //[System.Serializable] public class WsEvent : UnityEvent<string> { }
-    //public WsEvent wsMsgReceived;
+    [System.Serializable] public class WsEvent : UnityEvent<string> { }
+    public WsEvent wsMsgReceived;
     public class WSHelloworld
     {
         public string connectMessage;
@@ -108,6 +108,13 @@ public class WsClient : MonoBehaviour
         }
 
     }
+
+    private void OnApplicationQuit()
+    {
+        SendWSMessage("Android application is closing");
+        ws.CloseAsync(CloseStatusCode.Normal);
+    }
+
 
 }
 
