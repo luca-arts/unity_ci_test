@@ -206,6 +206,7 @@ jobs:
   deployAndroidPages:
     needs: 
       - buildAndroid
+      - buildWebGL
     name: Deploy Android to Github Pages 🚀
     runs-on: ubuntu-latest
     steps:
